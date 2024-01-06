@@ -1,0 +1,45 @@
+﻿
+.page {
+    display: flex;
+    flex-direction: row;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 500px;
+    width: 100%;
+}
+
+.user-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    max-height: 500px;
+    border-right: 2px solid var(--blue);
+}
+
+::deep .user-menu-component {
+    padding: 10px 40px;
+    margin: 10px 30px;
+    border-bottom: 2px solid white;
+    user-select: none;
+}
+
+::deep .user-menu-component:hover {
+    border-bottom: 2px solid var(--blue);
+    cursor: pointer;
+}
+
+.user-menu-options {
+    width: 80%
+}
+
+.material-symbols-outlined {
+    padding-right: 5px;
+}
+

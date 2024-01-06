@@ -1,0 +1,42 @@
+﻿
+.logo {
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+}
+
+.nav-link-center {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.nav-button-center {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+
+.nav-button-center * {
+    padding: 0px 5px;
+}
+
+.nav-link-center * {
+    padding: 0px 5px;
+}
+
+.sign-ing-btn {
+    width: 150px;
+}
+
+
+

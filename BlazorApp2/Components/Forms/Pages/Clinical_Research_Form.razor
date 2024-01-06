@@ -1,0 +1,185 @@
+﻿@page "/Forms/Clinical_Research_Form"
+@using System.ComponentModel.DataAnnotations
+
+<PageTitle>Clinical Form</PageTitle>
+
+<EditForm Model="Input" OnValidSubmit="Update_record" method="post" FormName="Clinical_Research">
+    <div class="form">
+        <DataAnnotationsValidator />
+        <div class="form-header">
+            <div class="form-header-component">
+                <div>
+                    <h2>Last Edited By:</h2>
+                    User here...s
+                </div>
+                <div>
+                    <h2>Last Edit Date:</h2>
+                    Date here...
+                </div>
+            </div>
+            <div class="form-header-component">
+                <button type="submit" class="butt">Submit Form</button>
+            </div>
+        </div>
+        <div class="form-divider"></div>
+        <div class="form-body">
+            <div class="form-input">
+                <div class="form-heading">
+                    <h3>Patient Details</h3>
+                </div>
+                <div class="form-divider"></div>
+                <div>
+                    <InputNumber TValue="int" @bind-Value="Input.Identifier" class="input-number" aria-required="true" placeholder="0"></InputNumber>
+                    <label for="Identifier">Patient Identifier</label>
+                </div>
+                <div>
+                    <InputNumber TValue="int" @bind-Value="Input.Trial_number" class="input-number" aria-required="true" placeholder="0"></InputNumber>
+                    <label for="">Trial Number</label>
+                </div>
+                <div>
+                    <InputDate TValue="DateOnly" @bind-Value="Input.Date_birth" class="input-date" aria-required="true" Placeholder="Enter Date" />
+                    <label for="">Date of Birth</label>
+                </div>
+                <div>
+                    <InputDate TValue="DateOnly" @bind-Value="Input.Date_diagnosis" class="input-date" aria-required="true" Placeholder="Enter Date" />
+                    <label for="">Date of Diagnosis</label>
+                </div>
+            </div>
+            <div class="form-divider-alt"></div>
+            <div class="form-input">
+                <div class="form-heading">
+                    <h3>Pathology Review</h3>
+                </div>
+                <div class="form-divider"></div>
+                <div>
+                    <InputNumber TValue="int" @bind-Value="Input.Pathology_number" class="input-number" aria-required="true" placeholder="0"></InputNumber>
+                    <label for="Identifier">Pathology Number</label>
+                </div>
+                <div>
+                    <InputNumber TValue="int" @bind-Value="Input.Slides_number" class="input-number" aria-required="true" placeholder="0"></InputNumber>
+                    <label for="Identifier">Number of Slides</label>
+                </div>
+                <div>
+                    <InputNumber TValue="int" @bind-Value="Input.Blocks_number" class="input-number" aria-required="true" placeholder="0"></InputNumber>
+                    <label for="Identifier">Number of Blocks</label>
+                </div>
+                <div>
+                    <InputDate TValue="DateOnly" @bind-Value="Input.Date_review" class="input-date" aria-required="true" Placeholder="Enter Date" />
+                    <label for="">Date of Review</label>
+                </div>
+
+            </div>
+            <div class="form-divider-alt"></div>
+            <div class="form-input">
+                <div class="form-heading">
+                    <h3>Tumor Details</h3>
+                </div>
+                <div class="form-divider"></div>
+                <div>
+                    <InputText @bind-Value="Input.Laterality" class="input-text" autocomplete="" aria-required="true" placeholder="" />
+                    <label for="">Laterality</label>
+                </div>
+                <div>
+                    <InputText @bind-Value="Input.Method" class="input-text" autocomplete="" aria-required="true" placeholder="" />
+                    <label for="">Method</label>
+                </div>
+                <div>
+                    <InputDate TValue="DateOnly" @bind-Value="Input.Date_Tumor" class="input-date" aria-required="true" Placeholder="Enter Date" />
+                    <label for="">Date</label>
+                </div>
+                <div class="form-number-inputs">
+                    <div>
+                        <InputNumber TValue="float" @bind-Value="Input.Length" class="input-number" aria-required="true" placeholder="0"></InputNumber>
+                        <label for="Identifier">Length</label>
+                    </div>
+                    <div>
+                        <InputNumber TValue="float" @bind-Value="Input.Width" class="input-number" aria-required="true" placeholder="0"></InputNumber>
+                        <label for="Identifier">Width</label>
+                    </div>
+                    <div>
+                        <InputNumber TValue="float" @bind-Value="Input.Size" class="input-number" aria-required="true" placeholder="0"></InputNumber>
+                        <label for="Identifier">Size</label>
+                    </div>
+                    <div>
+                        <InputNumber TValue="float" @bind-Value="Input.Thickness" class="input-number" aria-required="true" placeholder="0"></InputNumber>
+                        <label for="Identifier">Thickness</label>
+                    </div>
+                    <div>
+                        <InputNumber TValue="float" @bind-Value="Input.Volume" class="input-number" aria-required="true" placeholder="0"></InputNumber>
+                        <label for="Identifier">Volume</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+   
+</EditForm>
+
+@code {
+
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = new();
+
+    [SupplyParameterFromQuery]
+    private string? ReturnUrl { get; set; }
+
+    public async Task Update_record()
+    {
+
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        public int Identifier { get; set; } = 0; 
+
+        [Required]
+        public int Trial_number { get; set; } = 0;
+
+        [Required]
+        public DateOnly Date_birth { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+
+        [Required]
+        public DateOnly Date_diagnosis { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+
+        [Required]
+        public DateOnly Date_review { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+
+        [Required]
+        public int Pathology_number { get; set; } = 0;
+
+        [Required]
+        public int Slides_number { get; set; } = 0;
+
+        [Required]
+        public int Blocks_number { get; set; } = 0;
+
+        [Required]
+        public string Laterality { get; set; } = "";
+
+        [Required]
+        public string Method { get; set; } = "";
+
+        [Required]
+        public DateOnly Date_Tumor { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+
+        [Required]
+        public float Width { get; set; } = 0;
+
+        [Required]
+        public float Length { get; set; } = 0;
+
+        [Required]
+        public float Size { get; set; } = 0;
+
+        [Required]
+        public float Thickness { get; set; } = 0;
+
+        [Required]
+        public float Volume { get; set; } = 0;
+    }
+}

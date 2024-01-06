@@ -1,0 +1,82 @@
+﻿@inherits LayoutComponentBase
+@rendermode InteractiveServer
+@inject NavigationManager Navigation    
+
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <div class="">
+            <img class="logo" src="/Assets/open-book-icon-32.png" asp-append-version="true" />
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav container-fluid justify-content-center">
+                <NavLink class="nav-item nav-link" href="/">
+                    <div class="nav-link-center">
+                        <icon class="material-symbols-outlined">home</icon>
+                        <text>Home</text>
+                    </div>
+                </NavLink>
+                <NavLink class="nav-item nav-link" href="Books/Index">
+                    <div class="nav-link-center">
+                        <icon class="material-symbols-outlined">bookmarks</icon>
+                        <text>Collection</text>
+                    </div>
+                </NavLink>
+                <AuthorizeView>
+                    <Authorized>
+                        <NavLink class="nav-item nav-link" href="/Bookings/Create">
+                            <div class="nav-link-center">
+                                <icon class="material-symbols-outlined">send</icon>
+                                <text>Order</text>
+                            </div>
+                        </NavLink>
+                    </Authorized>
+                    <NotAuthorized>
+                        <NavLink class="nav-item nav-link disabled">
+                            <div class="nav-link-center">
+                                <icon class="material-symbols-outlined">lock</icon>
+                                <text>Order</text>
+                            </div>
+                        </NavLink>   
+                    </NotAuthorized>
+                </AuthorizeView>
+                <NavLink class="nav-item nav-link" href="/About">
+                    <div class="nav-link-center">
+                        <icon class="material-symbols-outlined">info</icon>
+                        <text>About</text>
+                    </div>
+                </NavLink>
+            </div>
+            <div class="float-end">
+                <AuthorizeView>
+                    <Authorized>
+                        <NavLink class="btn btn-dark sign-ing-btn" href="/General">
+                            <div class="nav-button-center">
+                                <icon class="material-symbols-outlined">account_circle</icon>
+                                <text>User</text>
+                            </div>
+                        </NavLink>
+                    </Authorized>
+                    <NotAuthorized>
+                        <NavLink class="btn btn-dark sign-ing-btn" href="/Account/Login">
+                            <div class="nav-button-center">
+                                <icon class="material-symbols-outlined">account_circle</icon>
+                                <text>Sign In</text>
+                            </div>
+                        </NavLink>
+                    </NotAuthorized>
+                </AuthorizeView>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+@code {
+    
+}

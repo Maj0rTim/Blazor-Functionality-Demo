@@ -1,0 +1,64 @@
+﻿
+.form, .form-header-component div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form * {
+    margin: 5px;
+}
+
+.form-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+.form-header-component {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-divider {
+    border: 1px solid var(--blue) ;
+    margin: 15px;
+    width: 80%;
+}
+
+.form-divider-alt {
+    border: 1px solid var(--blue);
+    margin: 15px;
+    width: 0px;
+    height: 325px;
+}
+
+.form-input{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 25%;
+}
+
+.form-number-inputs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

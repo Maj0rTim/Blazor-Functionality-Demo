@@ -1,0 +1,60 @@
+﻿@page "/General"
+@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+<div class="page">
+    <div class="user">
+        <div class="user-menu">
+            <NavLink class="user-menu-component">
+                <icon class="material-symbols-outlined">account_circle</icon>
+                General
+            </NavLink>
+            <NavLink class="user-menu-component">
+                <icon class="material-symbols-outlined">menu_book</icon>
+                Personal Info
+            </NavLink>
+            <NavLink class="user-menu-component">
+                <icon class="material-symbols-outlined">verified_user</icon>
+                Data & Privacy
+            </NavLink>
+            <NavLink class="user-menu-component">
+                <icon class="material-symbols-outlined">lock_open</icon>
+                Security
+            </NavLink>
+            <NavLink class="user-menu-component">
+                <icon class="material-symbols-outlined">accessibility_new</icon>
+                Accesability
+            </NavLink>
+        </div>
+        <div class="user-menu-options">
+        </div>
+    </div>
+    
+    <div class="general">
+        <div class="general-component">
+
+        </div>
+        <div class="general-component">
+
+        </div>
+        <div class="general-component">
+
+        </div>
+        <div class="general-component">
+
+        </div>
+        <div class="general-component">
+
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+
+}

@@ -1,0 +1,44 @@
+﻿::deep .validation-errors {
+    display: none;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    width: 400px;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    border: 2px solid black;
+}
+
+.login-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding-top: 25px;
+}
+
+.login-inputs * {
+    padding: 5px 0px;
+}
+
+.login-errors {
+    padding: 10px 0px;
+    height: 75px;
+}
+
+.login-submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 275px;
+}
+
+.login-register {
+    padding-top: 10px;
+}
+              
